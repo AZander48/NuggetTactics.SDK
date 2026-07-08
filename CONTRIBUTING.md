@@ -44,7 +44,7 @@ The [`.github/workflows/publish.yml`](.github/workflows/publish.yml) workflow ru
 - Manual dispatch (**Actions** → **Publish** → **Run workflow**)
 - Pushing a version tag (e.g. `v1.0.1`)
 
-It runs `build.sh package`, exchanges a GitHub OIDC token for a temporary NuGet API key, and pushes `bin/*.nupkg` to nuget.org.
+It runs `build.sh package`, exchanges a GitHub OIDC token for a temporary NuGet API key, and pushes `bin/**/*.nupkg` to nuget.org.
 
 #### Option B: Local publish (API key)
 

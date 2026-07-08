@@ -14,9 +14,9 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '10.0.x'
 
@@ -33,13 +33,14 @@ jobs:
 
       - name: Push
         run: |
-          shopt -s nullglob
-          packages=(bin/*.nupkg)
+          mapfile -t packages < <(find bin -name '*.nupkg')
           if [ ${#packages[@]} -eq 0 ]; then
-            echo "No .nupkg files found in bin/"
+            echo "No .nupkg files found under bin/"
+            find bin -type f || true
             exit 1
           fi
           for package in "${packages[@]}"; do
+            echo "Pushing $package"
             dotnet nuget push "$package" \
               --skip-duplicate \
               --api-key "${{ steps.login.outputs.NUGET_API_KEY }}" \
