@@ -34,9 +34,4 @@ This package uses [semantic versioning](https://semver.org/). Bump the package v
 
 ## Publishing this package
 
-```powershell
-nuke package
-nuke publish --nuget-api-key <key>
-```
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for maintainer details.
+Publish to [nuget.org](https://www.nuget.org/) via GitHub Actions (trusted publishing) or locally with an API key. See [CONTRIBUTING.md](CONTRIBUTING.md) for setup and commands.
