@@ -80,4 +80,4 @@ You can store the API key via Nuke secrets:
 
 `download-depots` and `get-current-version-info` remain for local tooling experiments. They are **not** part of the publish pipeline and must not be used to bundle game content into the NuGet package.
 
-`get-current-version-info` requires `build/classdata.tpk` (TPK format v1 — see Silksong.GameLibs or an older AssetRipper Tpk build). Do not commit this file.
+`get-current-version-info` requires `build/classdata.tpk` (TPK format v1 — see HadeanTacticsTemplate.GameLibs or an older AssetRipper Tpk build). Do not commit this file.

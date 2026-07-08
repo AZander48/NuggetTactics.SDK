@@ -12,7 +12,7 @@ MSBuild SDK NuGet package for modding Hadean Tactics with BepInEx 5. It wires up
 2. Reference this package from your mod `.csproj`:
 
 ```xml
-<PackageReference Include="NuggetTactics.SDK" Version="1.0.0" />
+<PackageReference Include="NuggetTactics.SDK" Version="1.0.2" />
 ```
 
 3. Point at your owned copy of the game (override the default Steam path if needed):
