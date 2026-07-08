@@ -21,9 +21,7 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Pack
-        run: |
-          chmod +x ./build.sh
-          ./build.sh package
+        run: dotnet pack NuggetTactics.SDK.csproj -c Release -o artifacts
 
       - name: NuGet login (OIDC)
         uses: NuGet/login@v1
@@ -33,10 +31,11 @@ jobs:
 
       - name: Push
         run: |
-          mapfile -t packages < <(find bin -name '*.nupkg')
+          shopt -s nullglob
+          packages=(artifacts/*.nupkg)
           if [ ${#packages[@]} -eq 0 ]; then
-            echo "No .nupkg files found under bin/"
-            find bin -type f || true
+            echo "No .nupkg files found in artifacts/"
+            ls -la artifacts/ || true
             exit 1
           fi
           for package in "${packages[@]}"; do
