@@ -18,7 +18,7 @@
 
     <IncludeBuildOutput>false</IncludeBuildOutput>
 
-    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <SuppressDependenciesWhenPacking>false</SuppressDependenciesWhenPacking>
 
     <PackageReadmeFile>doc/README.md</PackageReadmeFile>
 
@@ -27,12 +27,6 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
 
   </PropertyGroup>
-
-
-
-  <SuppressDependenciesWhenPacking>false</SuppressDependenciesWhenPacking>
-
-
 
   <ItemGroup>
     
@@ -47,8 +41,6 @@
     <None Include="NuggetTactics.SDK.props" Pack="true" PackagePath="build/" />
 
   </ItemGroup>
-
-
 
   <ItemGroup>
 
