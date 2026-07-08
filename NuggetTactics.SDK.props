@@ -1,0 +1,31 @@
+<Project>
+  <PropertyGroup>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <!-- Override in your mod's Directory.Build.props -->
+    <HadeanTacticsDir Condition="'$(HadeanTacticsDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Hadean Tactics</HadeanTacticsDir>
+    <HadeanTacticsManaged>$(HadeanTacticsDir)\HadeanTactics_Data\Managed</HadeanTacticsManaged>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" PrivateAssets="all" />
+    <!-- Hadean Tactics uses Unity 2022.3.x; requires https://nuget.bepinex.dev -->
+    <PackageReference Include="UnityEngine.Modules" Version="2022.3.33" PrivateAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp" Publicize="true">
+      <HintPath>$(HadeanTacticsManaged)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass" Publicize="true">
+      <HintPath>$(HadeanTacticsManaged)\Assembly-CSharp-firstpass.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="ValidateNuggetTacticsInstall" BeforeTargets="ResolveReferences">
+    <Error
+      Condition="!Exists('$(HadeanTacticsManaged)\Assembly-CSharp.dll')"
+      Text="Could not find Assembly-CSharp.dll at '$(HadeanTacticsManaged)'. Set HadeanTacticsDir in Directory.Build.props to your owned copy of Hadean Tactics." />
+  </Target>
+</Project>

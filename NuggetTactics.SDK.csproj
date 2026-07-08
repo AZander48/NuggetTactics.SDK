@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+
+    <TargetFramework>netstandard2.1</TargetFramework>
+
+    <PackageVersion>1.0.0</PackageVersion>
+    
+    <PackageId>NuggetTactics.SDK</PackageId>
+
+    <Authors>AZander48</Authors>
+
+    <Description>MSBuild SDK for modding Hadean Tactics with BepInEx 5. References your local game install; does not redistribute game files.</Description>
+
+    <PackageTags>Hadean Tactics modding bepinex5</PackageTags>
+
+    <DevelopmentDependency>true</DevelopmentDependency>
+
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+
+    <PackageReadmeFile>doc/README.md</PackageReadmeFile>
+
+    <PackageProjectUrl>https://github.com/AZander48/NuggetTactics.SDK</PackageProjectUrl>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+  </PropertyGroup>
+
+
+
+  <ItemGroup>
+
+    <None Include="README.md" Pack="true" PackagePath="doc/" />
+
+    <None Include="NuggetTactics.SDK.props" Pack="true" PackagePath="build/" />
+
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+
+    <Compile Remove="build\**" />
+
+    <EmbeddedResource Remove="build\**" />
+
+    <None Remove="build\**" />
+
+  </ItemGroup>
+
+
+
+</Project>
+
+
